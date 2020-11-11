@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="example">
+    <BarChart
+      class="chart"
+      :data-set="data"
+      :margin-left="40"
+      :margin-top="40"
+      :tick-count="5"
+      :bar-padding="0.5"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BarChart from "./components/BarChart.vue";
 
 export default {
-  name: 'App',
+  name: "example",
+  data() {
+    return {
+      data: [
+        ["Test 1", 33],
+        ["Test 2", 24],
+        ["Test 3", 22],
+        ["Test 4", 12],
+        ["Test 5", 43],
+        ["Test 6", 23],
+        ["Test 7", 2],
+        ["Test 8", 35]
+      ]
+    };
+  },
   components: {
-    HelloWorld
+    BarChart
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.chart {
+  margin: 40px auto 0;
+  display: block;
 }
 </style>
